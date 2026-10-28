@@ -1,0 +1,14 @@
+<div class="page-header">
+    <h1>Semua Post</h1>
+    {{if .authUser}}<a href="/posts/create" class="btn">+ Tulis Post</a>{{end}}
+</div>
+
+{{range .posts}}
+    <article class="card">
+        <h2><a href="/posts/{{.ID}}">{{.Title}}</a></h2>
+        <p class="muted">oleh {{.User.Name}} &middot; {{.CreatedAt.Format "02 Jan 2006"}}</p>
+        <p>{{limit .Body 120}}</p>
+    </article>
+{{else}}
+    <p class="muted">Belum ada post.</p>
+{{end}}

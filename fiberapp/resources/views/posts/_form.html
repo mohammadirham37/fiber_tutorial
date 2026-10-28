@@ -1,0 +1,13 @@
+<input type="hidden" name="_token" value="{{.csrf}}">
+
+<div class="field">
+    <label for="title">Judul</label>
+    <input type="text" id="title" name="title" value="{{.old.Title}}">
+    {{with .errors.title}}<small class="invalid">{{.}}</small>{{end}}
+</div>
+
+<div class="field">
+    <label for="body">Isi</label>
+    <textarea id="body" name="body" rows="8">{{.old.Body}}</textarea>
+    {{with .errors.body}}<small class="invalid">{{.}}</small>{{end}}
+</div>

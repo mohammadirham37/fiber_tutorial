@@ -1,0 +1,17 @@
+<nav class="navbar">
+    <a href="/" class="brand">Fiber Blog</a>
+    <div class="menu">
+        <a href="/posts">Post</a>
+        {{if .authUser}}
+            <a href="/posts/create">Tulis Post</a>
+            <span class="muted">Halo, {{.authUser.Name}}</span>
+            <form action="/logout" method="POST" class="inline">
+                <input type="hidden" name="_token" value="{{.csrf}}">
+                <button type="submit" class="link">Logout</button>
+            </form>
+        {{else}}
+            <a href="/login">Login</a>
+            <a href="/register" class="btn btn-small">Daftar</a>
+        {{end}}
+    </div>
+</nav>

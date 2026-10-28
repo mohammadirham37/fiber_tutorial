@@ -1,0 +1,64 @@
+### Contoh request untuk extension VS Code "REST Client".
+### Klik tulisan "Send Request" yang muncul di atas setiap request.
+
+@base = http://localhost:3000/api
+# Isi dengan token dari hasil login
+@token = TEMPEL_TOKEN_DI_SINI
+
+### Daftar post (publik)
+GET {{base}}/posts?page=1&per_page=5
+
+### Detail post (publik)
+GET {{base}}/posts/1
+
+### Register
+POST {{base}}/register
+Content-Type: application/json
+
+{
+  "name": "Budi",
+  "email": "budi@example.com",
+  "password": "rahasia123",
+  "password_confirmation": "rahasia123"
+}
+
+### Login
+POST {{base}}/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "password"
+}
+
+### Data user yang login
+GET {{base}}/me
+Authorization: Bearer {{token}}
+
+### Buat post
+POST {{base}}/posts
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Post dari API",
+  "body": "Isi post yang dibuat lewat REST API."
+}
+
+### Ubah post
+PUT {{base}}/posts/4
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Judul baru",
+  "body": "Isi baru yang cukup panjang."
+}
+
+### Hapus post
+DELETE {{base}}/posts/4
+Authorization: Bearer {{token}}
+
+### Logout (hapus token)
+POST {{base}}/logout
+Authorization: Bearer {{token}}

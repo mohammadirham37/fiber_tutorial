@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.title}} - Fiber Blog</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+    {{template "partials/navbar" .}}
+
+    <main class="container">
+        {{template "partials/flash" .}}
+
+        {{embed}}
+    </main>
+
+    <footer class="footer">Dibuat dengan Go Fiber &middot; gaya Laravel</footer>
+</body>
+</html>

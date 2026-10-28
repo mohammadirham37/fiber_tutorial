@@ -1,0 +1,19 @@
+<article class="card">
+    <h1>{{.post.Title}}</h1>
+    <p class="muted">oleh {{.post.User.Name}} &middot; {{.post.CreatedAt.Format "02 Jan 2006 15:04"}}</p>
+    <div class="content">{{.post.Body}}</div>
+
+    {{if and .authUser (eq .authUser.ID .post.UserID)}}
+        <div class="actions">
+            <a href="/posts/{{.post.ID}}/edit" class="btn">Edit</a>
+            <form action="/posts/{{.post.ID}}" method="POST" class="inline"
+                  onsubmit="return confirm('Yakin hapus post ini?')">
+                <input type="hidden" name="_token" value="{{.csrf}}">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="btn btn-danger">Hapus</button>
+            </form>
+        </div>
+    {{end}}
+</article>
+
+<a href="/posts">&larr; Kembali</a>

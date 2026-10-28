@@ -1,0 +1,7 @@
+<h1>Tulis Post Baru</h1>
+
+<form action="/posts" method="POST" class="card">
+    {{template "posts/_form" .}}
+    <button type="submit" class="btn">Simpan</button>
+    <a href="/posts" class="btn btn-light">Batal</a>
+</form>

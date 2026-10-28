@@ -1,0 +1,35 @@
+<div class="auth-box card">
+    <h1>Daftar Akun</h1>
+
+    <form action="/register" method="POST">
+        <input type="hidden" name="_token" value="{{.csrf}}">
+
+        <div class="field">
+            <label for="name">Nama</label>
+            <input type="text" id="name" name="name" value="{{.old.Name}}">
+            {{with .errors.name}}<small class="invalid">{{.}}</small>{{end}}
+        </div>
+
+        <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="{{.old.Email}}">
+            {{with .errors.email}}<small class="invalid">{{.}}</small>{{end}}
+        </div>
+
+        <div class="field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+            {{with .errors.password}}<small class="invalid">{{.}}</small>{{end}}
+        </div>
+
+        <div class="field">
+            <label for="password_confirmation">Konfirmasi Password</label>
+            <input type="password" id="password_confirmation" name="password_confirmation">
+            {{with .errors.password_confirmation}}<small class="invalid">{{.}}</small>{{end}}
+        </div>
+
+        <button type="submit" class="btn">Daftar</button>
+    </form>
+
+    <p class="muted">Sudah punya akun? <a href="/login">Login</a></p>
+</div>

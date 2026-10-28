@@ -1,0 +1,8 @@
+<h1>Edit Post</h1>
+
+<form action="/posts/{{.post.ID}}" method="POST" class="card">
+    <input type="hidden" name="_method" value="PUT">
+    {{template "posts/_form" .}}
+    <button type="submit" class="btn">Perbarui</button>
+    <a href="/posts/{{.post.ID}}" class="btn btn-light">Batal</a>
+</form>
