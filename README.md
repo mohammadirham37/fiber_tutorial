@@ -6,7 +6,7 @@ Modul belajar berbahasa Indonesia untuk pemula: mulai dari dasar bahasa Go, dasa
 
 | Path | Isi |
 | --- | --- |
-| `modul-fiber-laravel-style.html` | Modul ajar (buka langsung di browser) |
+| `index.html` | Modul ajar (buka langsung di browser) |
 | `fiberapp/` | Kode lengkap aplikasi hasil akhir modul |
 
 ## Daftar materi
